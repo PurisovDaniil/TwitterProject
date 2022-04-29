@@ -7,29 +7,68 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>{% block title %} {% endblock %}</title>
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/modal.css' %}">
 </head>
 <body>
     <nav class="navbar">
         <div class="navbar-widget">
             <div class="navbar-ico-widget">
-                <img src="{% static 'img/twitter-brands.svg' %}" class="navbar-ico">
+                <a href="{% url 'index' %}"><img src="{% static 'img/twitter-brands.svg' %}" class="navbar-ico"></a>
             </div>
             <ul class="navbar-menu">
+                {% if user.is_authenticated %}
                 <li class="navbar-li active">
-                    <img src="{% static 'img/house-solid.svg' %}" class="navbar-ico-second">Главная
+                    <a href="">
+                        <img src="{% static 'img/house-solid.svg' %}" class="navbar-ico-second">Главная
+                    </a>
                 </li>
                 <li class="navbar-li">
-                    <img src="{% static 'img/hashtag-solid.svg' %}" class="navbar-ico-second">Поиск
+                    <a href="">
+                        <img src="{% static 'img/hashtag-solid.svg' %}" class="navbar-ico-second">Поиск
+                    </a>
                 </li>
                 <li class="navbar-li">
-                    <img src="{% static 'img/envelope-solid.svg' %}" class="navbar-ico-second">Сообщения
+                    <a href="">
+                        <img src="{% static 'img/envelope-solid.svg' %}" class="navbar-ico-second">Сообщения
+                    </a>
                 </li>
                 <li class="navbar-li">
-                    <img src="{% static 'img/bookmark-solid.svg' %}" class="navbar-ico-second">Закладки
+                    <a href="">
+                        <img src="{% static 'img/bookmark-solid.svg' %}" class="navbar-ico-second">Закладки
+                    </a>
                 </li>
                 <li class="navbar-li">
-                    <img src="{% static 'img/user-solid.svg' %}" class="navbar-ico-second">Профиль
+                    <a href="">
+                        <img src="{% static 'img/user-solid.svg' %}" class="navbar-ico-second">Профиль
+                    </a>
                 </li>
+                {% else %}
+                <li class="navbar-li active">
+                    <a href="{% url 'authorisation' %}">
+                        <img src="{% static 'img/house-solid.svg' %}" class="navbar-ico-second">Главная
+                    </a>
+                </li>
+                <li class="navbar-li">
+                    <a href="{% url 'authorisation' %}">
+                        <img src="{% static 'img/hashtag-solid.svg' %}" class="navbar-ico-second">Поиск
+                    </a>
+                </li>
+                <li class="navbar-li">
+                    <a href="{% url 'authorisation' %}">
+                        <img src="{% static 'img/envelope-solid.svg' %}" class="navbar-ico-second">Сообщения
+                    </a>
+                </li>
+                <li class="navbar-li">
+                    <a href="{% url 'authorisation' %}">
+                        <img src="{% static 'img/bookmark-solid.svg' %}" class="navbar-ico-second">Закладки
+                    </a>
+                </li>
+                <li class="navbar-li">
+                    <a href="{% url 'authorisation' %}">
+                        <img src="{% static 'img/user-solid.svg' %}" class="navbar-ico-second">Профиль
+                    </a>
+                </li>
+                {% endif %}
             </ul>
             <div class="send-ad-widget">
                 <button class="send-ad">Твитнуть</button>
@@ -41,7 +80,11 @@
         {% endblock %}
     </main>
     <div class="search-widget">
-
+        <form action="{% url 'search_url'%}" method="GET" class="search-form">
+            <img src="{% static 'img/magnifying-glass-solid.svg' %}" class="search-ico">
+            <input type="text" placeholder="Search Twitter" class="input-search">
+        </form>
     </div>
+    <script src="{% static 'js/dropdown.js' %}"></script>
 </body>
 </html>

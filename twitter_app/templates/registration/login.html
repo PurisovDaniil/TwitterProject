@@ -1,0 +1,25 @@
+{% extends 'base.html'%}
+{% load static %}
+{% block title %}
+Авторизация
+{% endblock %}
+{% block content %}
+<div class="content">
+    <div class="form-widget">
+        <form action="{% url 'login' %}" method="POST" class="login-form">
+            <div class="bg-olx">
+                {% csrf_token %}
+                {% if form.errors %}
+                <p class="error">Data entered incorrectly</p>
+                {% endif %}
+                <label for="username" class="username-label">Логин:</label>
+                <input type="text" name="username" value="" id="username" class="username-input">
+                <label for="password" class="password-label">Пароль:</label>
+                <input type="password" name="password" value="" id="password" class="password-input">
+                <input type="hidden" name="next" value="{{ next|escape }}" />
+                <button class="">Войти</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
