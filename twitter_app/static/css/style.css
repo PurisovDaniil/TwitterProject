@@ -60,7 +60,6 @@ body{
 }
 .container{
     width: 50%;
-    background-color: red;
     margin-left: 0.3%;
     margin-right: 0.3%;
 }
@@ -82,7 +81,7 @@ body{
 .search-form{
     display: flex;
     margin-left: 10%;
-    margin-top: 1%;
+    margin-top: 2%;
     width: 75%;
     align-items: center;
     background-color: rgb(239, 243, 244);
@@ -97,4 +96,48 @@ body{
 .input-search{
     border: none;
     background-color: rgb(239, 243, 244);
+}
+.container-wigdet{
+    display: block;
+}
+.user-icon{
+    width: 40px;
+}
+.container-top{
+    padding-left: 3%;
+    padding-right: 3%;
+}
+.container-top-widget{
+    display: flex;
+    align-items: center;
+}
+.container-text{
+    padding: 20px 20px 20px 8px;
+    border: none;
+    font-size: large;
+}
+.container-text:focus{
+    outline: none;
+}
+.container-text::placeholder{
+    font-size: large;
+}
+.image-icon{
+    width: 20px;
+}
+.container-top-btn-widget{
+    display: flex;
+    justify-content: space-between;
+}
+.container-top-btn{
+    background-color:rgb(29, 155, 240);
+    border: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px 10px 20px;
+    font-size: medium;
+    border-radius: 10px;
+}
+.photo-label{
+    padding-left: 1%;
 }

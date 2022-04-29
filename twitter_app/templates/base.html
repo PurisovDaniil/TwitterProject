@@ -76,13 +76,30 @@
         </div>
     </nav>
     <main class="container">
-        {% block content %}
-        {% endblock %}
+        <div class="container-top">
+            <p style="font-weight: bold; font-size: large;">Главная</p>
+            <form action="">
+                <!--конструкция if по фотке юзера-->
+                <div class="container-top-widget">
+                    <img src="{% static 'img/icons8-user-64.png' %}" class="user-icon">
+                    <input type="text" class="container-text" placeholder="Что нового?">
+                </div>
+                <hr>
+                <div class="container-top-btn-widget">
+                    <label for="photo" class="photo-label">
+                        <img src="{% static 'img/image-solid.svg' %}" class="image-icon">
+                    </label>
+                    <input type="file" id="photo" style="visibility: hidden;">
+                    <button class="container-top-btn">Твитнуть</button>
+                </div>
+                <hr>
+            </form>
+        </div>
     </main>
     <div class="search-widget">
         <form action="{% url 'search_url'%}" method="GET" class="search-form">
             <img src="{% static 'img/magnifying-glass-solid.svg' %}" class="search-ico">
-            <input type="text" placeholder="Search Twitter" class="input-search">
+            <input type="text" placeholder="Поиск в Твиттер" class="input-search">
         </form>
     </div>
     <script src="{% static 'js/dropdown.js' %}"></script>
