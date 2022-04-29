@@ -1,0 +1,47 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="navbar-widget">
+            <div class="navbar-ico-widget">
+                <img src="{% static 'img/twitter-brands.svg' %}" class="navbar-ico">
+            </div>
+            <ul class="navbar-menu">
+                <li class="navbar-li active">
+                    <img src="{% static 'img/house-solid.svg' %}" class="navbar-ico-second">Главная
+                </li>
+                <li class="navbar-li">
+                    <img src="{% static 'img/hashtag-solid.svg' %}" class="navbar-ico-second">Поиск
+                </li>
+                <li class="navbar-li">
+                    <img src="{% static 'img/envelope-solid.svg' %}" class="navbar-ico-second">Сообщения
+                </li>
+                <li class="navbar-li">
+                    <img src="{% static 'img/bookmark-solid.svg' %}" class="navbar-ico-second">Закладки
+                </li>
+                <li class="navbar-li">
+                    <img src="{% static 'img/user-solid.svg' %}" class="navbar-ico-second">Профиль
+                </li>
+            </ul>
+            <div class="send-ad-widget">
+                <button class="send-ad">Твитнуть</button>
+            </div>
+        </div>
+    </nav>
+    <main class="container">
+        {% block content %}
+        {% endblock %}
+    </main>
+    <div class="search-widget">
+
+    </div>
+</body>
+</html>
