@@ -13,7 +13,7 @@
     <nav class="navbar">
         <div class="navbar-widget">
             <div class="navbar-ico-widget">
-                <a href="{% url 'index' %}"><img src="{% static 'img/twitter-brands.svg' %}" class="navbar-ico"></a>
+                <a href="{% url 'index' %}"><img src="{% static 'img/twitter.png' %}" class="navbar-ico"></a>
             </div>
             <ul class="navbar-menu">
                 {% if user.is_authenticated %}
@@ -70,9 +70,19 @@
                 </li>
                 {% endif %}
             </ul>
+            {% if user.is_authenticated %}
             <div class="send-ad-widget">
-                <button class="send-ad">Твитнуть</button>
+                <a href="">
+                    <button class="send-ad">Твитнуть</button>
+                </a>
             </div>
+            {% else %}
+            <div class="send-ad-widget">
+                <a href="{% url 'authorisation' %}">
+                    <button class="send-ad">Твитнуть</button>
+                </a>
+            </div>
+            {% endif %}
         </div>
     </nav>
     <main class="container">
