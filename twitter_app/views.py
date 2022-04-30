@@ -3,6 +3,8 @@ from django.db.models import Q
 from .models import Post
 from django.contrib.auth.models import User
 from .forms import RegisterForm
+from django.core.files.storage import FileSystemStorage
+
 
 
 # Create your views here.
@@ -70,3 +72,15 @@ def profile(request):
 
 def authorisation(request):
     return render(request, 'twitter_app/authorisation.html')
+
+def add_post(request):
+    if request.method == 'POST':
+        post = Post()
+        post.text = request.POST.get('text')
+        if request.FILES.get('image', False) !=False:
+            myfile = request.FILES['image']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            post.image = filename
+        post.save()
+        return redirect('index')

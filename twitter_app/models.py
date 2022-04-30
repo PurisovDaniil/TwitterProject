@@ -11,3 +11,4 @@ class Post(models.Model):
 
     def get_link(self):
         return reverse('')
+
