@@ -4,15 +4,17 @@
 Авторизация
 {% endblock %}
 {% block content %}
-<div class="authorisation-widget">
-    <p>Для взаимодействия с сайтом, необходимо авторизоваться</p>
-    <div class="author-btn-widget">
-        <button class="author-btn">
-            <a href="">Войти</a>
-        </button>
-        <button class="author-btn">
-            <a href="">Зарегистрироваться</a>
-        </button>
+<div class="authorisation">
+    <div class="authorisation-widget">
+        <p class="author-title">Для дальнейшего взаимодействия с сайтом, необходимо авторизоваться. Выберите одно из ниже приведенных действий.</p>
+        <div class="author-btn-widget">
+            <a href="{% url 'login' %}" class="author-link">
+                <button class="author-btn">Войти в аккаунт</button>
+            </a>
+            <a href="{% url 'register' %}" class="author-link">
+                <button class="author-btn">Зарегистрироваться</button>
+            </a>
+        </div>
     </div>
 </div>
 {% endblock %}

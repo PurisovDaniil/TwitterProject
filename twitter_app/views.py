@@ -2,6 +2,7 @@ from django.shortcuts import render, redirect, reverse
 from django.db.models import Q
 from .models import Post
 from django.contrib.auth.models import User
+from .forms import RegisterForm
 
 
 # Create your views here.
@@ -9,6 +10,16 @@ from django.contrib.auth.models import User
 
 def index(request):
     return render(request, 'twitter_app/index.html')
+
+def register(request):
+    if request.method == 'POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+        else:
+            form = RegisterForm()
+    return render(request, 'twitter_app/register.html', {"form":form})
 
 def search_results(request):
     query = request.GET.get('search_input')

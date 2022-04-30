@@ -4,5 +4,35 @@
 Главная
 {% endblock %}
 {% block content %}
-
+<div class="container-top">
+    <p style="font-weight: bold; font-size: large;">Главная</p>
+    <form action=""> <!--форма add post-->
+        <!--конструкция if по фотке юзера-->
+        <div class="container-top-widget">
+            <img src="{% static 'img/icons8-user-64.png' %}" class="user-icon">
+            <input type="text" class="container-text" placeholder="Что нового?">
+        </div>
+        <hr>
+        <div class="container-top-btn-widget">
+            <label for="photo" class="photo-label">
+                <img src="{% static 'img/image-solid.svg' %}" class="image-icon">
+            </label>
+            <input type="file" id="photo" style="visibility: hidden;">
+            <button class="container-top-btn">Твитнуть</button>
+        </div>
+    </form>
+</div>
+<div class="container-body">
+    <div class="twitter-card">
+        <div class="twitter-card-avatar-widget">
+            <!--конструкция if по фотке юзера-->
+            <img src="{% static 'img/icons8-user-64.png' %}" class="twitter-card-avatar"> <!--Заглушка на img юзера-->
+        </div>
+        <div class="twitter-card-name">
+            <p class="twitter-card-name-title" style="margin: 0;">President Purisov</p>
+            <p class="twitter-card-username" style="margin: 0;">@DaniilAndreevich</p>
+            <p class="twitter-date-post" style="margin: 0;">11h</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

@@ -141,3 +141,61 @@ body{
 .photo-label{
     padding-left: 1%;
 }
+.authorisation{
+    display: flex;
+    justify-content: center;
+    margin-top: 15%;
+}
+.author-btn-widget{
+    display: flex;
+    justify-content: center;
+}
+.author-btn{
+    margin-left: 25px;
+    background-color: rgb(29, 155, 240);
+    border: none;
+    color: white;
+    font-weight: bold;
+    font-size: 15px;
+    border-radius: 10px;
+    padding: 7px 15px 7px 15px;
+}
+.author-btn:hover{
+    cursor: pointer;
+}
+.author-link{
+    color: white;
+    text-decoration: none;
+}
+.author-title{
+    font-size: 18px;
+    text-align: center;
+    color: black;
+}
+.twitter-card{
+    display: flex;
+    border-top: gray solid 0.5px;
+    margin-top: 3%;
+    padding-top: 2%;
+    padding-left: 1%;
+}
+.twitter-card-avatar{
+    width: 50px;
+}
+.twitter-card-name-title{
+    color: black;
+    font-weight: bold;
+}
+.twitter-card-username{
+    color: gray;
+    padding-left: 7px;
+}
+.twitter-card-name{
+    display: flex;
+    padding-top: 1%;
+    padding-left: 0.5%;
+}
+.twitter-date-post{
+    color: gray;
+    padding-left: 7px;
+}

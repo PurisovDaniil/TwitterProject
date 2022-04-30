@@ -4,10 +4,10 @@
 Авторизация
 {% endblock %}
 {% block content %}
-<div class="content">
+<div class="login-widget">
     <div class="form-widget">
         <form action="{% url 'login' %}" method="POST" class="login-form">
-            <div class="bg-olx">
+            <div class="login-twitter">
                 {% csrf_token %}
                 {% if form.errors %}
                 <p class="error">Data entered incorrectly</p>
