@@ -1,8 +1,11 @@
 from django.shortcuts import render, redirect, reverse
 from django.db.models import Q
-from .models import Post, Favourite
+from .models import Post, Favourite, Category
 from django.contrib.auth.models import User
 from .forms import RegisterForm
+from django.db.models.deletion import ProtectedError
+from django.http import HttpResponse
+from django.core.files.storage import FileSystemStorage
 
 
 # Create your views here.
@@ -95,3 +98,42 @@ def delete_favourites(request, item_id):
         item.delete()
         return redirect('favourites')
     return redirect('authorisation')
+
+def create_post(request):
+    if request.method == 'POST':
+        post = Post()
+        post.title = request.POST.get('title')
+        post.category = Category.objects.get(id=request.POST.get('category'))
+        post.text = request.POST.get('text')
+        if request.FILES.get('image', False) != False:
+            myfile = request.FILES['image']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            post.image = filename
+        post.save()
+    return redirect('index')
+
+def update_post(request, id):
+    post = Post.objects.get(id=id)
+    if request.method == 'POST':
+        post.title = request.POST.get('title')
+        post.text = request.POST.get('text')
+        post.category = Category.objects.get(id=request.POST.get('category'))
+        if request.FILES.get('image', False) != False:
+            myfile = request.FILES['image']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            post.image = filename
+        post.save()
+        return redirect('index')
+    return render(request, 'twitter_app/update.html', {'post':post})
+
+def delete_post(request, id):
+    post = Post.objects.get(id=id)
+    if request.method == 'POST':
+        try:
+            post.delete()
+            return redirect(reverse('index'))
+        except ProtectedError:
+            return HttpResponse('Не получилось удалить пост')
+    return render(request, 'twitter_app/delete.html', {'post':post})

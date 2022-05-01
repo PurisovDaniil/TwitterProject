@@ -45,23 +45,14 @@ class Category(models.Model):
 
 
 class Post(models.Model):
-    title = models.CharField('Заголовок', max_length=150)
-    slug = models.SlugField('Ссылка', max_length=150, unique=True)
-    text = models.TextField('Текст', blank=True, null=True)
-    views = models.IntegerField('Просмотры', default=0)
-    date = models.DateTimeField('Дата', default=timezone.now)
-    category = models.ManyToManyField(Category, verbose_name = 'Категории', related_name = 'posts')
+    title = models.CharField(max_length=150)
+    text = models.TextField(blank=True, null=True)
+    views = models.IntegerField(default=0)
+    users = models.ManyToManyField(User, related_name = 'favourite_posts')
+    date = models.DateTimeField(default=timezone.now)
+    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(null=True, blank=True)
 
-    def get_link(self):
-        return reverse('post_detail_url', kwargs={'slug':self.slug})
-
-    class Meta():
-        verbose_name = 'Пост'
-        verbose_name_plural = 'Посты'
-
-    def __str__(self):
-        return self.title
 
 class Favourite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
