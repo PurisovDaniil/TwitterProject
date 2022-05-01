@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.db.models import Q
-from .models import Post
+from .models import Post, Favourite
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 
@@ -67,6 +67,31 @@ def profile(request):
     comments = request.user.comment_set.order_by('-date')
     formBG = UserBG()
     context = {'views':views, 'comments':comments, 'formBG':formBG}
+    return render(request, 'twitter_app/profil.html', context)
 
 def authorisation(request):
     return render(request, 'twitter_app/authorisation.html')
+
+def favourites(request):
+    if request.user.is_authenticated:
+        post = Favourite.objects.filter(user=request.user)
+        return render(request, 'twitter_app/favourites.html', {'post':post})
+    return redirect('authorisation')
+
+def add_to_favourites(request, post_id):
+    post = Post.objects.get(id = post_id)
+    if request.user.is_authenticated:
+        if not request.user.favourite_set.filter(post = post).exists():
+            item = Favourite()
+            item.post = post
+            item.user = request.user
+            item.save()
+        return redirect('index')
+    return redirect('authorisation')
+
+def delete_favourites(request, item_id):
+    item = Favourite.objects.get(id=item_id)
+    if request.user.is_authenticated:
+        item.delete()
+        return redirect('favourites')
+    return redirect('authorisation')

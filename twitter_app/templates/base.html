@@ -18,7 +18,7 @@
             <ul class="navbar-menu">
                 {% if user.is_authenticated %}
                 <li class="navbar-li active">
-                    <a href="">
+                    <a href="{% url 'index' %}">
                         <img src="{% static 'img/house-solid.svg' %}" class="navbar-ico-second">Главная
                     </a>
                 </li>
@@ -33,8 +33,8 @@
                     </a>
                 </li>
                 <li class="navbar-li">
-                    <a href="">
-                        <img src="{% static 'img/bookmark-solid.svg' %}" class="navbar-ico-second">Закладки
+                    <a href="{% url 'favourites' %}">
+                        <img src="{% static 'img/bookmark-solid.svg' %}" class="navbar-ico-second">Избранное
                     </a>
                 </li>
                 <li class="navbar-li">
@@ -60,7 +60,7 @@
                 </li>
                 <li class="navbar-li">
                     <a href="{% url 'authorisation' %}">
-                        <img src="{% static 'img/bookmark-solid.svg' %}" class="navbar-ico-second">Закладки
+                        <img src="{% static 'img/bookmark-solid.svg' %}" class="navbar-ico-second">Избранное
                     </a>
                 </li>
                 <li class="navbar-li">
@@ -89,11 +89,18 @@
         {% block content %}
         {% endblock %}
     </main>
-    <div class="search-widget">
-        <form action="{% url 'search_url'%}" method="GET" class="search-form">
-            <img src="{% static 'img/magnifying-glass-solid.svg' %}" class="search-ico">
-            <input type="text" placeholder="Поиск в Твиттер" class="input-search">
-        </form>
+    <div class="sidebar-widget">
+        <div class="search-widget">
+            <form action="{% url 'search_url'%}" method="GET" class="search-form">
+                <img src="{% static 'img/magnifying-glass-solid.svg' %}" class="search-ico">
+                <input type="text" placeholder="Поиск в Твиттер" class="input-search">
+            </form>
+        </div>  
+        <div class="add-to-friend-widget">
+            <div class="a-t-f">
+                <p>Кого добавить в друзья</p>
+            </div>
+        </div>
     </div>
     <script src="{% static 'js/dropdown.js' %}"></script>
 </body>
