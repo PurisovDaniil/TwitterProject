@@ -64,13 +64,7 @@ def comment(request, slug):
     return redirect(reverse('post_detial_url', kwargs = {'slug':post.slug}))
 
 def profile(request):
-    if not request.user.is_auhenticated:
-        return redirect('index')
-    views = request.user.views_set.order_by('-date')
-    comments = request.user.comment_set.order_by('-date')
-    formBG = UserBG()
-    context = {'views':views, 'comments':comments, 'formBG':formBG}
-    return render(request, 'twitter_app/profil.html', context)
+    return render(request, 'twitter_app/profile.html')
 
 def authorisation(request):
     return render(request, 'twitter_app/authorisation.html')

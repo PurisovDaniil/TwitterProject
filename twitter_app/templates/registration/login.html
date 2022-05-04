@@ -10,14 +10,14 @@
             <div class="login-twitter">
                 {% csrf_token %}
                 {% if form.errors %}
-                <p class="error">Data entered incorrectly</p>
+                <p class="error-login">Неправильно введены данные, пожалуйста повторите попытку.</p>
                 {% endif %}
                 <label for="username" class="username-label">Логин:</label>
                 <input type="text" name="username" value="" id="username" class="username-input">
                 <label for="password" class="password-label">Пароль:</label>
                 <input type="password" name="password" value="" id="password" class="password-input">
                 <input type="hidden" name="next" value="{{ next|escape }}" />
-                <button class="">Войти</button>
+                <button class="login-btn">Войти в профиль</button>
             </div>
         </form>
     </div>

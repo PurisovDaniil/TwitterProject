@@ -7,11 +7,9 @@
     <div class="register-widget">
         <div class="register-form-widget">
             <form action="{% url 'register' %}" method="POST" class="register-form">
-                <div class="twitter-bg">
-                    {% csrf_token %}
-                    {{form.as_p}}
-                    <button class="register-btn">Регистрация</button>
-                </div>
+                {% csrf_token %}
+                {{form.as_p}}
+                <button class="register-btn">Регистрация</button>
             </form>
         </div>
     </div>

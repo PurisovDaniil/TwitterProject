@@ -4,5 +4,23 @@
 Профиль
 {% endblock %}
 {% block content %}
-
+<div class="profile-content">
+    <div class="profile-edit-widget">
+        <img src="{% static 'img/circle-user-solid.svg' %}" class="profile-user-avatar"> <!--Заглушка на img юзера-->
+        <a href="">
+            <button class="edit-profile-btn">
+                <p>Edit profile</p>
+            </button>
+        </a>
+    </div>
+    <div class="user-description">
+        <p class="profile-username">Даниил</p>
+        <p class="profile-nickname">@DaniilAndreevich</p>
+        <p class="profile-description">web developer</p>
+        <div class="user-follow">
+            <p class="user-following"><span class="follow-span">2</span> Following</p>
+            <p class="user-followers"><span class="follow-span">0</span> Followers</p>
+        </div>
+    </div>
+</div>
 {% endblock %}

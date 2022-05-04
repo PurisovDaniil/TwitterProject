@@ -16,7 +16,7 @@ body{
 .navbar-li{
     list-style-type: none;
     font-size: 20px;
-    padding: 10px 10px 10px 10px;
+    padding: 10px;
     margin-bottom: 10px;
     border-radius: 20px;
     width: max-content;
@@ -50,6 +50,14 @@ body{
     font-weight: bold;
     font-size: large;
     border-radius: 17px;
+    transition: all 0.3s ease;
+}
+.send-ad:hover{
+    background-color: white;
+    box-shadow: inset rgb(29, 155, 240) 0 0 0 3px;
+    transition: all 0.3s ease;
+    color: rgb(29, 155, 240);
+    cursor: pointer;
 }
 .send-ad-widget{
     display: flex;
@@ -245,4 +253,142 @@ body{
     margin-top: 10%;
     text-align: center;
     font-weight: bold;
+}
+.register-form input{
+    padding: 7px 10px 7px 10px;
+    outline: none;
+    border: gray solid 0.5px;
+}
+.register-form label{
+    display: block;
+    padding-bottom: 3px;
+}
+.register-form-widget{
+    display: flex;
+    justify-content: center;
+}
+.register-btn{
+    background-color: rgb(29, 155, 240);
+    border: none;
+    color: white;
+    padding: 7px 0 7px 0;
+    width: 100%;
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 7px;
+    transition: all 0.3s ease;
+}
+.register-form input:focus{
+    border: solid 0.5px gray;
+    padding: 7px 10px 7px 10px;
+    box-shadow: inset rgb(29, 155, 240) 0 0 4px 1px;
+}
+.register-btn:hover{
+    background-color: white;
+    box-shadow: rgb(29, 155, 240) 0 0 0 3px;
+    color: rgb(29, 155, 240);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.login-twitter label{
+    display: block;
+    padding-bottom: 3px;
+}
+.login-twitter input{
+    padding: 10px 15px 10px 15px;
+    border: gray solid 0.5px;
+    margin-bottom: 5%;
+}
+.login-twitter input:focus{ 
+    padding: 10px 15px 10px 15px;
+    box-shadow: inset rgb(29, 155, 240) 0 0 6px 1px;
+    border-radius: 0;
+    outline: none;
+}   
+.login-btn{
+    display: block;
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    background-color: rgb(29, 155, 240);
+    color: white;
+    border: none;
+    font-weight: bold;
+    font-size: medium;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+.login-btn:hover{
+    background-color: white;
+    box-shadow: inset rgb(29, 155, 240) 0 0 0 3px;
+    color: rgb(29, 155, 240);
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+.login-form{
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+.error-login{
+    color: darkred;
+}
+.profile-user-avatar{
+    width: 120px;
+}
+.profile-content{
+    margin-left: 1%;
+    margin-top: 3%;
+    margin-right: 3%;
+}
+.profile-edit-widget{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.edit-profile-btn{
+    border: solid gray 0.5px;
+    padding: 5px 10px 5px 10px;
+    font-size: medium;
+    font-weight: bold;
+    background-color: transparent;
+    border-radius: 15px;
+    transition: all ease 0.1s;
+}
+.edit-profile-btn p{
+    opacity: 0.8;
+    margin: 0;
+}
+.edit-profile-btn:hover{
+    cursor: pointer;
+    border: solid rgb(29, 155, 240) 0.5px;
+    color: rgb(29, 155, 240);
+    transition: all ease 0.1s; 
+}
+.profile-username{
+    font-weight: bold;
+    font-size: larger;
+    margin: 0;
+    margin-top: 3%;
+}
+.user-description{
+    margin-left: 1%;
+}
+.profile-nickname{
+    margin-top: 0;
+}
+.profile-description{
+    opacity: 0.9;
+}
+.user-follow{
+    display: flex;
+}
+.user-followers{
+    margin-top: 0;
+    color: gray;
+}
+.user-following{
+    margin-top: 0;
+    color: gray;
+    margin-right: 5%;
 }
