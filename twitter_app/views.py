@@ -131,3 +131,6 @@ def delete_post(request, id):
         except ProtectedError:
             return HttpResponse('Не получилось удалить пост')
     return render(request, 'twitter_app/delete.html', {'post':post})
+
+def messages(request):
+    return render(request, 'twitter_app/messages.html')

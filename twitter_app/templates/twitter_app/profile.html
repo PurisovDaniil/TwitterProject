@@ -7,11 +7,14 @@
 <div class="profile-content">
     <div class="profile-edit-widget">
         <img src="{% static 'img/circle-user-solid.svg' %}" class="profile-user-avatar"> <!--Заглушка на img юзера-->
-        <a href="">
-            <button class="edit-profile-btn">
-                <p>Edit profile</p>
+        <div class="profile-edit-btn-widget">
+            <button class="edit-profile-btn" style="width: 100%;">
+                <a href="{% url 'index' %}">Edit profile</a>
             </button>
-        </a>
+            <button class="edit-profile-btn">
+                <a href="{% url 'logout' %}">Logout profile</a>
+            </button>
+        </div>
     </div>
     <div class="user-description">
         <p class="profile-username">Даниил</p>

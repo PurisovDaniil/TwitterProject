@@ -74,10 +74,22 @@ body{
     margin-left: 0.3%;
     margin-right: 0.3%;
 }
+.container-message{
+    width: 30%;
+    margin-left: 0.3%;
+    margin-right: 0.3%;
+}
 .sidebar-widget{
     border-left: gray solid 0.5px;
     padding-left: 0.3%;
     width: 30%;
+}
+.sidebar-widget-message{
+    border-left: gray solid 0.5px;
+    width: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 .navbar-li a{
     color: black;
@@ -250,7 +262,8 @@ body{
 .most-popular-posts{
     margin-left: 10%;
     background-color:rgb(239, 243, 244) ;
-    width: 77%;
+    width: 75%;
+    padding: 0 15px 8px 15px;
 }
 .favourites-empty-widget{
     margin-top: 10%;
@@ -354,6 +367,8 @@ body{
     padding: 5px 10px 5px 10px;
     font-size: medium;
     font-weight: bold;
+    display: block;
+    margin-bottom: 5%;
     background-color: transparent;
     border-radius: 15px;
     transition: all ease 0.1s;
@@ -365,8 +380,14 @@ body{
 .edit-profile-btn:hover{
     cursor: pointer;
     border: solid rgb(29, 155, 240) 0.5px;
-    color: rgb(29, 155, 240);
     transition: all ease 0.1s; 
+}
+.edit-profile-btn:hover a{
+    color: rgb(29, 155, 240);
+}
+.edit-profile-btn a{
+    text-decoration: none;
+    color: black;
 }
 .profile-username{
     font-weight: bold;
@@ -394,4 +415,38 @@ body{
     margin-top: 0;
     color: gray;
     margin-right: 5%;
+}
+.inbox-btn-widget{
+    margin-left: 7%;
+}
+.inbox{
+    background-color: rgb(29, 155, 240);
+    color: white;
+    font-weight: bold;
+    padding: 13px 25px 13px 25px;
+    border: none;
+    border-radius: 25px;
+}
+.inbox:hover{
+    filter: brightness(90%);
+    cursor: pointer;
+}
+.new-msg-btn{
+    background-color: rgb(29, 155, 240);
+    color: white;
+    font-weight: bold;
+    padding: 13px 25px 13px 25px;
+    border: none;
+    border-radius: 25px;
+}
+.new-msg-btn:hover{
+    filter: brightness(90%);
+    cursor: pointer;
+}
+.profile-edit-btn-widget{
+    display: block;
+}
+.follow-span{
+    color: black;
+    font-weight: bold;
 }
