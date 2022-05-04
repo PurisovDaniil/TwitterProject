@@ -25,6 +25,9 @@ body{
     background-color: gainsboro;
     cursor: pointer;
 }
+.navbar-li:hover a{
+    opacity: 0.8;
+}
 .navbar-ico-widget{
     padding-top: 15%;
 }

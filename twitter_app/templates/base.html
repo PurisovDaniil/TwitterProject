@@ -17,7 +17,7 @@
             </div>
             <ul class="navbar-menu">
                 {% if user.is_authenticated %}
-                <li class="navbar-li active">
+                <li class="navbar-li">
                     <a href="{% url 'index' %}">
                         <img src="{% static 'img/house-solid.svg' %}" class="navbar-ico-second">Главная
                     </a>
@@ -97,7 +97,7 @@
             </form>
         </div>  
         <div class="most-popular-posts">
-            <p>Популярные люди</p> <!--Блок Аслана-->
+            <p>Аккаунты с большим числом фолловеров</p> <!--Блок Аслана-->
         </div>
     </div>
     <script src="{% static 'js/dropdown.js' %}"></script>
