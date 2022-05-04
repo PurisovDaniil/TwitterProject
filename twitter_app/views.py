@@ -17,8 +17,8 @@ def register(request):
         if form.is_valid():
             form.save()
             return redirect('index')
-        else:
-            form = RegisterForm()
+    else:
+        form = RegisterForm()
     return render(request, 'twitter_app/register.html', {"form":form})
 
 def search_results(request):
@@ -70,3 +70,6 @@ def profile(request):
 
 def authorisation(request):
     return render(request, 'twitter_app/authorisation.html')
+
+def edit_profile(request):
+     return render (request, 'twitter_app/edit_profile.html')

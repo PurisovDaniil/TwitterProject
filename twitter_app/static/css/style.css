@@ -199,3 +199,116 @@ body{
     color: gray;
     padding-left: 7px;
 }
+.register-form input{
+    height: 40px;
+    width: 300px;
+    border-radius: 5px solid #999fa2;
+}
+ .form-control:focus{
+    border: 1px solid rgb(29, 155, 240);
+    outline: 1px solid rgb(29, 155, 240);
+}
+
+.twitter-bg p{
+    display: flex;
+    flex-direction: column;
+}
+.register-form-widget{
+    display: flex;
+    justify-content: center;   
+}
+.register-btn{
+    font-weight: bold;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    transition: all 300ms;
+}
+.register-btn:hover{
+    background-color: rgb(29, 155, 240);
+    color: white;
+}
+.twitter-bg img{
+    height: 40px;
+}
+.twitter-bg div {
+    display: flex;
+    justify-content:center ;
+}
+.form-widget{
+    display: flex;
+   flex-direction: column;
+}
+.login-form{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.login-twitter{
+    display: flex;
+    flex-direction: column;
+    align-self: center;
+}
+.login-twitter input{
+    height: 40px;
+    width: 300px;
+    border-radius: 5px solid #999fa2;
+    margin: 5px 0;
+}
+.login-twitter input:focus{
+    border: 1px solid rgb(29, 155, 240);
+    outline: 1px solid rgb(29, 155, 240);
+}
+.login-twitter button{
+    margin: 10px 0;
+    font-weight: bold;
+    width: 300px;
+    height: 40px;
+    border-radius: 20px;
+    border: none;
+    align-self: center;
+    transition: all 300ms;
+}
+.login-twitter button:hover{
+    background-color: rgb(29, 155, 240);
+    color: white;
+}
+.register-icon img{
+    width: 40px;
+}
+.edit_input{
+    width: 500px;
+    height: 40px;
+}
+.edit_profileimg{
+    display: flex;
+    width: 700px; 
+    background-color: gray; 
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+}   
+.edit_container{
+    padding: 20px;
+}
+.edit-button{
+    margin-left: 300px;
+    width: 100px;
+    height: 40px;
+    font-size: 22px;
+    border: 1px;
+    border-radius: 3px;
+}
+.edit-button:hover{
+    background-color: rgb(29, 155, 240);
+    color: white;
+}
+.input_container{
+    justify-content: center; 
+    display: flex ;
+    padding: 10px;
+}
+.accaunt{
+    height: 10px;
+}

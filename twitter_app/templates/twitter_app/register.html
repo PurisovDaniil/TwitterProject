@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block title %}
 Регистрация
 {% endblock %}
@@ -6,12 +7,15 @@
 <div class="register">
     <div class="register-widget">
         <div class="register-form-widget">
-            <form action="{% url 'register' %}" method="POST" class="register-form">
+            <form action="{% url 'register' %}" method="POST" class="register-form" >
                 <div class="twitter-bg">
+                    <div class="register-icon">
+                        <img src="{% static 'img/twitter.jpg' %}" alt="">
+                    </div>
                     {% csrf_token %}
                     {{form.as_p}}
-                    <button class="register-btn">Регистрация</button>
-                </div>
+                    <button class="register-btn">Далее</button>
+                </div> 
             </form>
         </div>
     </div>
