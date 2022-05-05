@@ -1,0 +1,19 @@
+{% extends 'base-chat.html' %}
+{% load static %}
+{% block title %}
+Сообщения
+{% endblock %}
+{% block content %}
+<div class="container-top">
+    <p style="font-weight: bold; font-size: large;">Сообщения</p>
+</div>
+<div class="welcome-inbox">
+    <p style="margin-left: 7%;font-weight: bold;font-size: xx-large; width: 70%; margin-bottom: 0;">Welcome to your inbox!</p>
+    <p style="margin-left: 7%; color: #7B8892;margin-top: 2%; width: 85%;">Drop a line, share Tweets and more with private conversations between you and others on Twitter.</p>
+    <div class="inbox-btn-widget">
+        <a href="" class="inbox-link">
+            <button class="inbox">Write a message</button>
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block title %}
+Редактирование профиля
+{% endblock %}
+{% block content %}
+<div class="edit_container">
+    <h2 style="margin-top: 0.5%;">Edit your profile</h2>
+    <form action="">
+        <a href="">
+            <div class="edit_profileimg">
+                <div class="edit-profile">
+                    <img src="{% static 'img/camera.png' %}" style="height: 50px;">
+                </div>
+            </div>
+        </a>
+        <div class="input_container">
+            <div>
+                <p>  <input type="text" class="edit_input" placeholder="Name"></p>
+                <p><textarea name="" id="" cols="10" rows="5" class="edit_input" placeholder="Bio" style="resize: none;"></textarea></p>
+                <input type="text" class="edit_input" placeholder="Location">
+            </div>
+        </div>
+    </form>
+</div>
+<button class="edit-button" type="submit">save</button>
+{% endblock %}

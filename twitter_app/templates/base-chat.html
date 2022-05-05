@@ -28,7 +28,7 @@
                     </a>
                 </li>
                 <li class="navbar-li">
-                    <a href="{% url 'messages' %}">
+                    <a href="">
                         <img src="{% static 'img/envelope-solid.svg' %}" class="navbar-ico-second">Сообщения
                     </a>
                 </li>
@@ -85,17 +85,18 @@
             {% endif %}
         </div>
     </nav>
-    <main class="container">
+    <main class="container-message">
         {% block content %}
         {% endblock %}
     </main>
-    <div class="sidebar-widget">
-        <div class="sidebar-widget-flex">
-            <div class="search-widget">
-                <form action="" class="search-form">
-                    <img src="{% static 'img/magnifying-glass-solid.svg' %}" style="width: 20px; margin-right: 5%;">
-                    <input type="text" class="search-input" placeholder="Поиск в Твиттер">
-                </form>
+    <div class="sidebar-widget-message">
+        <div class="sidebar-widget-message-block">
+            <p style="font-size: xx-large; font-weight: bold; opacity: 0.9;">Select message</p>
+            <p style="color: #7B8892;">Choose from your existing conversations, start a new one, or just keep swimming.</p>
+            <div class="new-message-widget">
+                <a href="">
+                    <button class="new-msg-btn">New message</button>
+                </a>
             </div>
         </div>
     </div>

@@ -1,10 +1,16 @@
 from django.shortcuts import render, redirect, reverse
 from django.db.models import Q
-from .models import Post
+from .models import Post, Favourite, Category
 from django.contrib.auth.models import User
 from .forms import RegisterForm
+<<<<<<< HEAD
 from django.core.files.storage import FileSystemStorage
 
+=======
+from django.db.models.deletion import ProtectedError
+from django.http import HttpResponse
+from django.core.files.storage import FileSystemStorage
+>>>>>>> 8630e64bc3232cbe471ecfe6a7a6bcb4926f4e81
 
 
 # Create your views here.
@@ -63,24 +69,87 @@ def comment(request, slug):
     return redirect(reverse('post_detial_url', kwargs = {'slug':post.slug}))
 
 def profile(request):
-    if not request.user.is_auhenticated:
-        return redirect('index')
-    views = request.user.views_set.order_by('-date')
-    comments = request.user.comment_set.order_by('-date')
-    formBG = UserBG()
-    context = {'views':views, 'comments':comments, 'formBG':formBG}
+    return render(request, 'twitter_app/profile.html')
 
 def authorisation(request):
     return render(request, 'twitter_app/authorisation.html')
 
+<<<<<<< HEAD
 def add_post(request):
     if request.method == 'POST':
         post = Post()
         post.text = request.POST.get('text')
         if request.FILES.get('image', False) !=False:
+=======
+def favourites(request):
+    if request.user.is_authenticated:
+        post = Favourite.objects.filter(user=request.user)
+        return render(request, 'twitter_app/favourites.html', {'post':post})
+    return redirect('authorisation')
+
+def add_to_favourites(request, post_id):
+    post = Post.objects.get(id = post_id)
+    if request.user.is_authenticated:
+        if not request.user.favourite_set.filter(post = post).exists():
+            item = Favourite()
+            item.post = post
+            item.user = request.user
+            item.save()
+        return redirect('index')
+    return redirect('authorisation')
+
+def delete_favourites(request, item_id):
+    item = Favourite.objects.get(id=item_id)
+    if request.user.is_authenticated:
+        item.delete()
+        return redirect('favourites')
+    return redirect('authorisation')
+
+def create_post(request):
+    if request.method == 'POST':
+        post = Post()
+        post.title = request.POST.get('title')
+        post.category = Category.objects.get(id=request.POST.get('category'))
+        post.text = request.POST.get('text')
+        if request.FILES.get('image', False) != False:
+            myfile = request.FILES['image']
+            fs = FileSystemStorage()
+            filename = fs.save(myfile.name, myfile)
+            post.image = filename
+        post.save()
+    return redirect('index')
+
+def update_post(request, id):
+    post = Post.objects.get(id=id)
+    if request.method == 'POST':
+        post.title = request.POST.get('title')
+        post.text = request.POST.get('text')
+        post.category = Category.objects.get(id=request.POST.get('category'))
+        if request.FILES.get('image', False) != False:
+>>>>>>> 8630e64bc3232cbe471ecfe6a7a6bcb4926f4e81
             myfile = request.FILES['image']
             fs = FileSystemStorage()
             filename = fs.save(myfile.name, myfile)
             post.image = filename
         post.save()
         return redirect('index')
+<<<<<<< HEAD
+=======
+    return render(request, 'twitter_app/update.html', {'post':post})
+
+def delete_post(request, id):
+    post = Post.objects.get(id=id)
+    if request.method == 'POST':
+        try:
+            post.delete()
+            return redirect(reverse('index'))
+        except ProtectedError:
+            return HttpResponse('Не получилось удалить пост')
+    return render(request, 'twitter_app/delete.html', {'post':post})
+
+def messages(request):
+    return render(request, 'twitter_app/messages.html')
+
+def edit_profile(request):
+    return render(request, 'twitter_app/edit_profile.html')
+>>>>>>> 8630e64bc3232cbe471ecfe6a7a6bcb4926f4e81
