@@ -90,14 +90,13 @@
         {% endblock %}
     </main>
     <div class="sidebar-widget">
-        <div class="search-widget">
-            <form action="{% url 'search_url'%}" method="GET" class="search-form">
-                <img src="{% static 'img/magnifying-glass-solid.svg' %}" class="search-ico">
-                <input type="text" placeholder="Поиск в Твиттер" class="input-search">
-            </form>
-        </div>  
-        <div class="most-popular-posts">
-            <p style="text-align: center;">Популярные аккаунты, которые могут вам понравиться</p> <!--Блок Аслана-->
+        <div class="sidebar-widget-flex">
+            <div class="search-widget">
+                <form action="" class="search-form">
+                    <img src="{% static 'img/magnifying-glass-solid.svg' %}" style="width: 20px; margin-right: 5%;">
+                    <input type="text" class="search-input" placeholder="Поиск в Твиттер">
+                </form>
+            </div>
         </div>
     </div>
 </body>

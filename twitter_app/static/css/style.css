@@ -25,9 +25,6 @@ body{
     background-color: gainsboro;
     cursor: pointer;
 }
-.navbar-li:hover a{
-    opacity: 0.8;
-}
 .navbar-ico-widget{
     padding-top: 15%;
 }
@@ -74,52 +71,11 @@ body{
     margin-left: 0.3%;
     margin-right: 0.3%;
 }
-.container-message{
-    width: 30%;
-    margin-left: 0.3%;
-    margin-right: 0.3%;
-}
-.sidebar-widget{
-    border-left: gray solid 0.5px;
-    padding-left: 0.3%;
-    width: 30%;
-}
-.sidebar-widget-message{
-    border-left: gray solid 0.5px;
-    width: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 .navbar-li a{
     color: black;
     text-decoration: none;
     display: flex;
     align-items: center;
-}
-.search-ico{
-    width: 20px;
-    margin-right: 5%;
-}
-.search-form{
-    display: flex;
-    margin-left: 10%;
-    margin-top: 2%;
-    width: 75%;
-    align-items: center;
-    background-color: rgb(239, 243, 244);
-    padding-top: 10px;
-    padding-left: 3%;
-    border-radius: 20px;
-    padding-bottom: 10px;
-}
-.input-search::placeholder{
-    font-size: 15px;
-}
-.input-search{
-    border: none;
-    background-color: rgb(239, 243, 244);
-    outline: none;
 }
 .container-wigdet{
     display: block;
@@ -240,6 +196,7 @@ body{
     margin: 0;
     margin-top: 7px;
     margin-left: 0.8%;
+    width: 96%;
 }
 .heart-icon{
     width: 20px;
@@ -258,12 +215,6 @@ body{
     width: 20px;
     margin-right: 5px;
     margin-left: 10%;
-}
-.most-popular-posts{
-    margin-left: 10%;
-    background-color:rgb(239, 243, 244) ;
-    width: 75%;
-    padding: 0 15px 8px 15px;
 }
 .favourites-empty-widget{
     margin-top: 10%;
@@ -367,8 +318,6 @@ body{
     padding: 5px 10px 5px 10px;
     font-size: medium;
     font-weight: bold;
-    display: block;
-    margin-bottom: 5%;
     background-color: transparent;
     border-radius: 15px;
     transition: all ease 0.1s;
@@ -380,14 +329,8 @@ body{
 .edit-profile-btn:hover{
     cursor: pointer;
     border: solid rgb(29, 155, 240) 0.5px;
-    transition: all ease 0.1s; 
-}
-.edit-profile-btn:hover a{
     color: rgb(29, 155, 240);
-}
-.edit-profile-btn a{
-    text-decoration: none;
-    color: black;
+    transition: all ease 0.1s; 
 }
 .profile-username{
     font-weight: bold;
@@ -416,35 +359,33 @@ body{
     color: gray;
     margin-right: 5%;
 }
-.inbox-btn-widget{
-    margin-left: 7%;
+.sidebar-widget{
+    border-left: gray solid 0.5px;
+    width: 30%;
 }
-.inbox{
-    background-color: rgb(29, 155, 240);
-    color: white;
-    font-weight: bold;
-    padding: 13px 25px 13px 25px;
+.sidebar-widget-flex{
+    display: flex;
+    justify-content: center;
+    margin-top: 2%;
+}
+.search-form{
+    display: flex;
+    align-items: center;
+    background-color: #EFF3F4;
+    padding: 10px 17px 10px 17px;
+    border-radius: 20px;
+}
+.search-input{
     border: none;
-    border-radius: 25px;
+    outline: none;
+    background-color: transparent;
 }
-.inbox:hover{
-    filter: brightness(90%);
-    cursor: pointer;
+.edit-profile-btn a{
+    text-decoration: none;
+    color: black;
 }
-.new-msg-btn{
-    background-color: rgb(29, 155, 240);
-    color: white;
-    font-weight: bold;
-    padding: 13px 25px 13px 25px;
-    border: none;
-    border-radius: 25px;
-}
-.new-msg-btn:hover{
-    filter: brightness(90%);
-    cursor: pointer;
-}
-.profile-edit-btn-widget{
-    display: block;
+.edit-profile-btn:hover a{
+    color: rgb(29, 155, 240);
 }
 .follow-span{
     color: black;
