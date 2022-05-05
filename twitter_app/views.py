@@ -3,14 +3,9 @@ from django.db.models import Q
 from .models import Post, Favourite, Category
 from django.contrib.auth.models import User
 from .forms import RegisterForm
-<<<<<<< HEAD
-from django.core.files.storage import FileSystemStorage
-
-=======
 from django.db.models.deletion import ProtectedError
 from django.http import HttpResponse
 from django.core.files.storage import FileSystemStorage
->>>>>>> 8630e64bc3232cbe471ecfe6a7a6bcb4926f4e81
 
 
 # Create your views here.
@@ -74,13 +69,6 @@ def profile(request):
 def authorisation(request):
     return render(request, 'twitter_app/authorisation.html')
 
-<<<<<<< HEAD
-def add_post(request):
-    if request.method == 'POST':
-        post = Post()
-        post.text = request.POST.get('text')
-        if request.FILES.get('image', False) !=False:
-=======
 def favourites(request):
     if request.user.is_authenticated:
         post = Favourite.objects.filter(user=request.user)
@@ -126,15 +114,12 @@ def update_post(request, id):
         post.text = request.POST.get('text')
         post.category = Category.objects.get(id=request.POST.get('category'))
         if request.FILES.get('image', False) != False:
->>>>>>> 8630e64bc3232cbe471ecfe6a7a6bcb4926f4e81
             myfile = request.FILES['image']
             fs = FileSystemStorage()
             filename = fs.save(myfile.name, myfile)
             post.image = filename
         post.save()
         return redirect('index')
-<<<<<<< HEAD
-=======
     return render(request, 'twitter_app/update.html', {'post':post})
 
 def delete_post(request, id):
@@ -152,4 +137,3 @@ def messages(request):
 
 def edit_profile(request):
     return render(request, 'twitter_app/edit_profile.html')
->>>>>>> 8630e64bc3232cbe471ecfe6a7a6bcb4926f4e81
