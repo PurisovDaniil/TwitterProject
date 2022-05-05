@@ -134,3 +134,6 @@ def delete_post(request, id):
 
 def messages(request):
     return render(request, 'twitter_app/messages.html')
+
+def edit_profile(request):
+    return render(request, 'twitter_app/edit_profile.html')

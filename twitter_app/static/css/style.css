@@ -391,3 +391,39 @@ body{
     color: black;
     font-weight: bold;
 }
+
+.edit_input{
+    width: 500px;
+    height: 40px;
+}
+.edit_profileimg{
+    display: flex;
+    width: 100%;
+    background-color: gray; 
+    height: 300px;
+    align-items: center;
+    justify-content: center;
+}   
+.edit_container{
+    padding: 20px;
+}
+.edit-button{
+    margin-left: 300px;
+    width: 100px;
+    height: 40px;
+    font-size: 22px;
+    border: 1px;
+    border-radius: 3px;
+}
+.edit-button:hover{
+    background-color: rgb(29, 155, 240);
+    color: white;
+}
+.input_container{
+    justify-content: center; 
+    display: flex ;
+    padding: 10px;
+}
+.accaunt{
+    height: 10px;
+}

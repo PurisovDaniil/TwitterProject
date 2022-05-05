@@ -15,4 +15,5 @@ urlpatterns = [
     path('favourites/add/<int:post_id>', views.add_to_favourites, name = 'add_to_favourites'),
     path('favourites/delete/<int:post_id>', views.delete_favourites, name = 'delete_favourites'),
     path('messages', views.messages, name = 'messages'),
+    path('edit_profile/', views.edit_profile, name = 'edit_profile'),
 ]
