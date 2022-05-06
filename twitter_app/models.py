@@ -39,6 +39,10 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
     def get_link(self):
+<<<<<<< HEAD
+        return reverse('')
+
+=======
         return reverse('category_detail_url', kwargs = {'slug':self.slug})
 
     def __str__(self):
@@ -58,3 +62,4 @@ class Post(models.Model):
 class Favourite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
+>>>>>>> 8630e64bc3232cbe471ecfe6a7a6bcb4926f4e81
