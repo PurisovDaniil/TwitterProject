@@ -403,9 +403,6 @@ body{
     height: 300px;
     align-items: center;
     justify-content: center;
-}   
-.edit_container{
-    padding: 20px;
 }
 .edit-button{
     margin-left: 300px;
@@ -419,11 +416,10 @@ body{
     background-color: rgb(29, 155, 240);
     color: white;
 }
-.input_container{
-    justify-content: center; 
-    display: flex ;
-    padding: 10px;
-}
 .accaunt{
     height: 10px;
+}
+.input-container{
+    display: flex;
+    justify-content: center;   
 }
