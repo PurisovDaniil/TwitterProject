@@ -6,8 +6,9 @@
 {% block content %}
 <div class="container-top">
     <p style="font-weight: bold; font-size: large;">Главная</p>
-    <form action=""> <!--форма add post-->
+    <form action="{% url 'add_post' %}" method="POST" enctype="multipart/form-data"> <!--форма add post-->
         <!--конструкция if по фотке юзера-->
+        {% csrf_token %}
         <div class="container-top-widget">
             <img src="{% static 'img/circle-user-solid.svg' %}" class="user-icon">
             <input type="text" class="container-text" placeholder="Что нового?">
@@ -21,6 +22,9 @@
             <button class="container-top-btn">Твитнуть</button>
         </div>
     </form>
+    {% for post in posts %}
+        <p>{{post.text}}</p>
+    {% endfor %}
 </div>
 <div class="container-body">
     <div class="twitter-card">
