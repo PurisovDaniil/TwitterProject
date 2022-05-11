@@ -5,15 +5,25 @@
 {% endblock %}
 {% block content %}
 <div class="container-top">
-    <p style="font-weight: bold; font-size: large;">Главная</p>
-    <form action="{% url 'add_post' %}" method="POST" enctype="multipart/form-data"> <!--форма add post-->
+    <p style="font-weight: bold; font-size: large;">Home</p>
+    {% if user.is_authenticated %}
+    <form action="{% url 'create_post' %}" method="POST" enctype="multipart/form-data"> <!--форма add post-->
         <!--конструкция if по фотке юзера-->
         {% csrf_token %}
         <div class="container-top-widget">
             <img src="{% static 'img/circle-user-solid.svg' %}" class="user-icon">
-            <input type="text" class="container-text" placeholder="Что нового?">
+            <div class="container-top-widget-block">
+                <!-- <input type="text" class="container-text" value="{{ user.name }}" name="name" required readonly> -->
+                <!-- <input type="text" class="container-text" value="{{ user.username }}" name="author" required readonly> -->
+                <input type="text" class="container-text" placeholder="What's happening?" name="text" required>
+                <input type="text" class="container-title" placeholder="Title for your post" name="title" required>
+                <select name="username" id="">
+                    {% for post in post %}
+                    <option value="{{post.author.id}}">{{post.author}}</option>
+                    {% endfor %}
+                </select>
+            </div>
         </div>
-        <hr>
         <div class="container-top-btn-widget">
             <label for="photo" class="photo-label">
                 <img src="{% static 'img/image-solid.svg' %}" class="image-icon">
@@ -22,8 +32,31 @@
             <button class="container-top-btn">Твитнуть</button>
         </div>
     </form>
-    {% for post in posts %}
+    {% else %}
+    <a href="{% url 'authorisation' %}" style="text-decoration: none;">
+        {% csrf_token %}
+        <div class="container-top-widget">
+            <img src="{% static 'img/circle-user-solid.svg' %}" class="user-icon">
+            <div class="container-top-widget-block">
+                <input type="text" class="container-text" placeholder="What's happening?" name="text" required>
+                <input type="text" placeholder="Title for your post" name="title" required class="container-title">
+            </div>
+        </div>
+        <div class="container-top-btn-widget">
+            <label for="photo" class="photo-label">
+                <img src="{% static 'img/image-solid.svg' %}" class="image-icon">
+            </label>
+            <input type="file" id="photo" style="visibility: hidden;">
+            <button class="container-top-btn">Твитнуть</button>
+        </div>
+    </a>
+    {% endif %}
+    {% for post in post %}
+        <!-- <p>{{user.name}}</p> -->
+        <p>{{post.user.username}}</p>
         <p>{{post.text}}</p>
+        <p>{{post.title}}</p>
+        <p>{{post.author}}</p>
     {% endfor %}
 </div>
 <div class="container-body">

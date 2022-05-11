@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.db.models import Q
-from .models import Post, Favourite, Category
+from .models import Post, Favourite
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 from django.db.models.deletion import ProtectedError
@@ -12,7 +12,8 @@ from django.core.files.storage import FileSystemStorage
 
 
 def index(request):
-    return render(request, 'twitter_app/index.html')
+    post = Post.objects.all()
+    return render(request, 'twitter_app/index.html', {"post":post})
 
 def register(request):
     if request.method == 'POST':
@@ -96,8 +97,8 @@ def delete_favourites(request, item_id):
 def create_post(request):
     if request.method == 'POST':
         post = Post()
+        post.author = request.POST.get('username')
         post.title = request.POST.get('title')
-        post.category = Category.objects.get(id=request.POST.get('category'))
         post.text = request.POST.get('text')
         if request.FILES.get('image', False) != False:
             myfile = request.FILES['image']
@@ -112,7 +113,6 @@ def update_post(request, id):
     if request.method == 'POST':
         post.title = request.POST.get('title')
         post.text = request.POST.get('text')
-        post.category = Category.objects.get(id=request.POST.get('category'))
         if request.FILES.get('image', False) != False:
             myfile = request.FILES['image']
             fs = FileSystemStorage()

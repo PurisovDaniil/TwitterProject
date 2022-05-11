@@ -9,7 +9,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     avatar = models.ImageField('Аватар', blank=True, null=True, upload_to='users/avatars')
     user_description = models.CharField('Описание пользователя', max_length=150)
-    user_nickname = models.CharField('Никнейм пользователя', max_length=30)
+    user_nickname = models.CharField(max_length=30)
     
     class Meta:
         verbose_name = 'Дополнительное поле пользователя'
@@ -39,10 +39,6 @@ class Category(models.Model):
         verbose_name_plural = 'Категории'
 
     def get_link(self):
-<<<<<<< HEAD
-        return reverse('')
-
-=======
         return reverse('category_detail_url', kwargs = {'slug':self.slug})
 
     def __str__(self):
@@ -53,13 +49,18 @@ class Post(models.Model):
     title = models.CharField(max_length=150)
     text = models.TextField(blank=True, null=True)
     views = models.IntegerField(default=0)
+    author = models.ForeignKey(User, on_delete = models.CASCADE, blank = True, null = True)
     users = models.ManyToManyField(User, related_name = 'favourite_posts')
     date = models.DateTimeField(default=timezone.now)
-    category = models.ForeignKey(Category, on_delete=models.CASCADE)
     image = models.ImageField(null=True, blank=True)
 
 
 class Favourite(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
->>>>>>> 8630e64bc3232cbe471ecfe6a7a6bcb4926f4e81
+
+class Comment(models.Model):
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    text = models.TextField('Текст комментария')
+    date = models.DateTimeField('Дата', default=timezone.now)
