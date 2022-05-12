@@ -97,7 +97,7 @@ def delete_favourites(request, item_id):
 def create_post(request):
     if request.method == 'POST':
         post = Post()
-        post.author = request.POST.get('username')
+        post.author = User.objects.get(id=request.user.id)
         post.title = request.POST.get('title')
         post.text = request.POST.get('text')
         if request.FILES.get('image', False) != False:

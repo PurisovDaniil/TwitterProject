@@ -17,11 +17,6 @@
                 <!-- <input type="text" class="container-text" value="{{ user.username }}" name="author" required readonly> -->
                 <input type="text" class="container-text" placeholder="What's happening?" name="text" required>
                 <input type="text" class="container-title" placeholder="Title for your post" name="title" required>
-                <select name="username" id="">
-                    {% for post in post %}
-                    <option value="{{post.author.id}}">{{post.author}}</option>
-                    {% endfor %}
-                </select>
             </div>
         </div>
         <div class="container-top-btn-widget">
