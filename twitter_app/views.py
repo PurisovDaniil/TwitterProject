@@ -27,9 +27,9 @@ def register(request):
 
 def search_results(request):
     query = request.GET.get('search_input')
-    posts = Post.objects.filter(Q(title__icontains = query))
+    posts = Post.objects.filter(Q(text__icontains = query))
     context = {'query': query, 'posts': posts}
-    return render(request, 'twitter_app/search_results.html')
+    return render(request, 'twitter_app/search_results.html', context)
 
 def post_detail(request, slug):
     post = Post.objects.get(slug__exact = slug)

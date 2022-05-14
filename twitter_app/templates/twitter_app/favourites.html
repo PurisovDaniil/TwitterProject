@@ -6,9 +6,9 @@
 {% block content %}
 <div class="container-top">
     <p style="font-weight: bold; font-size: large; margin-bottom: 0;">Избранные объявления</p>
-    <p style="color: gray; margin: 0;">@DaniilAndreevich</p>
+    <p style="color: gray; margin: 0;">{{user.username}}</p>
 </div> 
-{% for product in product %}
+{% for post in post %}
 <div class="twitter-card">
     <div class="twitter-card-avatar-widget">
         <!--конструкция if по фотке юзера-->
@@ -16,16 +16,14 @@
     </div>
     <div class="twitter-card-body-widget">
         <div class="twitter-card-name">
-            <p class="twitter-card-name-title" style="margin: 0;">President Purisov</p>
-            <p class="twitter-card-username" style="margin: 0;">@DaniilAndreevich</p>
-            <p class="twitter-date-post" style="margin: 0;">11h</p>
+            <p class="twitter-card-name-title" style="margin: 0;">{{post.post.author}}</p>
         </div>
         <div class="twitter-card-position">
             <img src="{% static 'img/flag-solid.svg' %}" class="flag-icon">
-            <p class="twitter-card-position-title">Белый дом в Бухарской области</p>
+            <p class="twitter-card-position-title">{{post.post.title}}</p>
         </div>
         <div class="twitter-card-text">
-            <p class="twitter-card-text-p">Today, I spoke with President López Obrador of Mexico. We discussed the importance of working together across our broad and deep agenda — including competitiveness, regional growth, and humane and effective efforts to reduce irregular migration</p>
+            <p class="twitter-card-text-p">{{post.post.text}}</p>
         </div>
         <div class="twitter-card-widgets">
             <img src="{% static 'img/thumbs-up-solid.svg' %}" class="heart-icon">
@@ -33,7 +31,6 @@
             <img src="{% static 'img/comment-solid.svg' %}" class="comment-icon">
             <p style="margin: 0;">2500</p>
             <img src="{% static 'img/heart-solid (1).svg' %}" class="favourite-icon">
-            <p style="margin: 0;">1000</p>
         </div>
     </div>
 </div>

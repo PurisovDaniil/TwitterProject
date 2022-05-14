@@ -23,11 +23,6 @@
                     </a>
                 </li>
                 <li class="navbar-li">
-                    <a href="">
-                        <img src="{% static 'img/hashtag-solid.svg' %}" class="navbar-ico-second">Поиск
-                    </a>
-                </li>
-                <li class="navbar-li">
                     <a href="{% url 'messages' %}">
                         <img src="{% static 'img/envelope-solid.svg' %}" class="navbar-ico-second">Сообщения
                     </a>
@@ -46,11 +41,6 @@
                 <li class="navbar-li active">
                     <a href="{% url 'authorisation' %}">
                         <img src="{% static 'img/house-solid.svg' %}" class="navbar-ico-second">Главная
-                    </a>
-                </li>
-                <li class="navbar-li">
-                    <a href="{% url 'authorisation' %}">
-                        <img src="{% static 'img/hashtag-solid.svg' %}" class="navbar-ico-second">Поиск
                     </a>
                 </li>
                 <li class="navbar-li">
@@ -91,12 +81,14 @@
     </main>
     <div class="sidebar-widget">
         <div class="sidebar-widget-flex">
-            <div class="search-widget">
-                <form action="" class="search-form">
-                    <img src="{% static 'img/magnifying-glass-solid.svg' %}" style="width: 20px; margin-right: 5%;">
-                    <input type="text" class="search-input" placeholder="Search Twitter">
-                </form>
-            </div>
+            <form action="{% url 'search_url' %}" class="search-form">
+                <div class="search-form-background">
+                    <div class="search-form-widget">
+                        <img src="{% static 'img/magnifying-glass-solid.svg' %}" style="width: 23px;">
+                        <input type="text" class="search-input" placeholder="Twitter Search" name="search_input">
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </body>

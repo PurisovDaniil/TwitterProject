@@ -4,7 +4,6 @@ from . import views
 urlpatterns = [
     path('', views.index, name = 'index'),
     path('twitter.com/<slug:slug>', views.post_detail, name = 'post_detail_url'),
-    path('twitter.com/search_results/', views.search_results, name = 'search_results'),
     path('profile/save_bg/', views.save_bg, name = 'save_bg'),
     path('profile/', views.profile, name = 'profile_url'),
     path('profile/<str:username>', views.user_detail, name = 'user_detail'),
@@ -17,4 +16,5 @@ urlpatterns = [
     path('messages', views.messages, name = 'messages'),
     path('edit_profile/', views.edit_profile, name = 'edit_profile'),
     path('create_post/', views.create_post, name = 'create_post'),
+    path('delete_post/<int:id>/', views.delete_post, name = 'delete_post'), 
 ]
