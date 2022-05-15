@@ -4,10 +4,10 @@
 Результаты поиска по запросу {{query}}
 {% endblock %}
 {% block content %}
-<div class="twitter-search-results">
-    <p style="text-align: center; font-weight: bold; margin-top: 4%; margin-bottom: 4%;">Результаты поиска по вашему запросу '{{query}}'.</p>
-</div>
 {% for post in posts %}
+<div class="twitter-search-results">
+    <p style="text-align: center; font-weight: bold; margin-top: 4%; margin-bottom: 4%;">Результаты поиска по вашему запросу '{{query}}':</p>
+</div>
 <div class="twitter-card">
     <div class="twitter-card-avatar-widget">
         <!--конструкция if по фотке юзера-->
@@ -18,7 +18,6 @@
             <p class="twitter-card-name-title" style="margin: 0;">{{post.author}}</p>
         </div>
         <div class="twitter-card-position">
-            <img src="{% static 'img/flag-solid.svg' %}" class="flag-icon">
             <p class="twitter-card-position-title">{{post.title}}</p>
         </div>
         <div class="twitter-card-text">
@@ -37,8 +36,10 @@
             </a>
         </div>
     </div>
-</div>
+</div></div>
 {% empty %}
-<p style="text-align: center; font-weight: bold;">По вашему запросу '{{query}}' ничего не найдено.</p>
+<div class="search-empty">
+    <p class="search-empty-title">По вашему запросу '{{query}}' ничего не найдено.</p>
+</div>
 {% endfor %}
 {% endblock %}

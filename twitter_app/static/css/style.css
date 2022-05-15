@@ -194,7 +194,6 @@ body{
     margin-right: 1%;
 }
 .twitter-card-position{
-    display: flex;
     margin-left: 5px;
     width: 100%;
 }
@@ -414,37 +413,13 @@ body{
     color: black;
     font-weight: bold;
 }
-
-.edit_input{
-    width: 500px;
-    height: 40px;
-}
-.edit_profileimg{
-    display: flex;
-    width: 100%;
-    background-color: gray; 
-    height: 300px;
-    align-items: center;
-    justify-content: center;
-}
-.edit-button{
-    margin-left: 300px;
-    width: 100px;
-    height: 40px;
-    font-size: 22px;
-    border: 1px;
-    border-radius: 3px;
-}
-.edit-button:hover{
-    background-color: rgb(29, 155, 240);
-    color: white;
-}
 .accaunt{
     height: 10px;
 }
-.input-container{
-    display: flex;
-    justify-content: center;   
+.edit-title{
+    font-weight: bold;
+    font-size: x-large;
+    margin-top: 1.8%;
 }
 .container-top-widget-block{
     margin-left: 1%;
@@ -488,4 +463,13 @@ body{
 }
 .delete-container{
     text-align: center;
+}
+.search-empty{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+.search-empty-title{
+    align-self: center;
+    font-weight: bold;
 }

@@ -4,22 +4,18 @@
 Редактирование профиля
 {% endblock %}
 {% block content %}
+<p class="edit-title">Edit your profile</p>
 <div class="edit_container">
-    <h2 style="margin-top: 0.5%;">Edit your profile</h2>
     <form action="">
         <a href="">
             <div class="edit_profileimg">
-                <div class="edit-profile">
-                    <img src="{% static 'img/camera.png' %}" style="height: 50px;">
-                </div>
+                <img src="{% static 'img/camera.png' %}" style="height: 50px;">
             </div>
         </a>
         <div class="input_container">
-            <div class="input-container-widget">
-                <input type="text" class="edit_input" placeholder="Name">
-                <textarea name="" id="" cols="10" rows="5" class="edit_input" placeholder="Bio" style="resize: none;"></textarea>
-                <input type="text" class="edit_input" placeholder="Location">
-            </div>
+            <input type="text" class="edit_input" placeholder="Name">
+            <textarea class="edit_input" placeholder="Bio" style="resize: none;"></textarea>
+            <input type="text" class="edit_input" placeholder="Location">
         </div>
     </form>
 </div>

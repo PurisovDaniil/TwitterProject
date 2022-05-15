@@ -18,6 +18,7 @@ class Profile(models.Model):
     def __str__(self):
         return self.user.username
 
+
 class Image(models.Model):
     image = models.ImageField('Картинка', upload_to='image/')
     title = models.CharField('Заголовок', max_length=100)

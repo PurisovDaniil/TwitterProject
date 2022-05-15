@@ -20,14 +20,14 @@ def register(request):
         form = RegisterForm(request.POST)
         if form.is_valid():
             form.save()
-            return redirect('index')
+            return redirect('login')
     else:
         form = RegisterForm()
     return render(request, 'twitter_app/register.html', {"form":form})
 
 def search_results(request):
     query = request.GET.get('search_input')
-    posts = Post.objects.filter(Q(text__icontains = query))
+    posts = Post.objects.filter(Q(title__icontains = query))
     context = {'query': query, 'posts': posts}
     return render(request, 'twitter_app/search_results.html', context)
 
