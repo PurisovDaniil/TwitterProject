@@ -65,16 +65,24 @@
                 <p class="twitter-card-text-p">{{post.text}}</p>
             </div>
             <div class="twitter-card-widgets">
-                <img src="{% static 'img/thumbs-up-solid.svg' %}" class="heart-icon">
-                <p style="margin: 0; margin-right: 10%;">3000</p>
-                <img src="{% static 'img/comment-solid.svg' %}" class="comment-icon">
-                <p style="margin: 0;">2000</p>
-                <a href="{% url 'add_to_favourites' post.id %}" style="margin-left: 10%;">
-                    <img src="{% static 'img/heart-solid (1).svg' %}" class="favourite-icon">
-                </a>
-                <a href="{% url 'delete_post' post.id %}" style="margin-left: 10%;">
-                    <img src="{% static 'img/trash-can-solid.svg' %}" class="trash-icon">
-                </a>
+                <div class="heart-icon-widget">
+                    <img src="{% static 'img/thumbs-up-solid.svg' %}" class="heart-icon">
+                    <p style="margin: 0; margin-right: 10%;">3000</p>
+                </div>
+                <div class="comment-icon-widget">
+                    <img src="{% static 'img/comment-solid.svg' %}" class="comment-icon">
+                    <p style="margin: 0;">2000</p>
+                </div>
+                <div class="favourite-icon-widget">
+                    <a href="{% url 'add_to_favourites' post.id %}" style="margin-left: 10%;">
+                        <img src="{% static 'img/heart-solid (1).svg' %}" class="favourite-icon">
+                    </a>
+                </div>
+                <div class="trash-icon-widget">
+                    <a href="{% url 'delete_post' post.id %}" style="margin-left: 10%;">
+                        <img src="{% static 'img/trash-can-solid.svg' %}" class="trash-icon">
+                    </a>
+                </div>
             </div>
         </div>
     </div>

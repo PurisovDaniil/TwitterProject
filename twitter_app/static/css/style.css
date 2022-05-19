@@ -219,7 +219,13 @@ body{
 .twitter-card-widgets{
     display: flex;
     margin-top: 1.5%;
+    width: 45%;
+    justify-content: space-between;
     margin-left: 1%;
+}
+.twitter-card-widgets div{
+    display: flex;
+    align-items: center;
 }
 .favourite-icon{
     width: 20px;
