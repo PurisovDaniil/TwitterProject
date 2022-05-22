@@ -13,8 +13,8 @@ urlpatterns = [
     path('favourites/', views.favourites, name = 'favourites'),
     path('favourites/add/<int:post_id>', views.add_to_favourites, name = 'add_to_favourites'),
     path('favourites/delete/<int:post_id>', views.delete_favourites, name = 'delete_favourites'),
-    path('messages', views.messages, name = 'messages'),
     path('edit_profile/', views.edit_profile, name = 'edit_profile'),
     path('create_post/', views.create_post, name = 'create_post'),
-    path('delete_post/<int:id>/', views.delete_post, name = 'delete_post'), 
+    path('delete_post/<int:id>/', views.delete_post, name = 'delete_post'),  
+    path('post_detail/<int:post_id>', views.post_detail, name = 'post_detail'),
 ]

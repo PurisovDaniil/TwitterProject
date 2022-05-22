@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+{% block title %}
+Подробно о посте
+{% endblock %}
+{% block content %}
+<div class="post-detail-container">
+    <div class="twitter-card">
+        <div class="twitter-card-avatar-widget">
+            <!--конструкция if по фотке юзера-->
+            <img src="{% static 'img/circle-user-solid.svg' %}" class="twitter-card-avatar"> <!--Заглушка на img юзера-->
+        </div>
+        <div class="twitter-card-body-widget">
+            <div class="twitter-card-name">
+                <p class="twitter-card-name-title" style="margin: 0;">{{post.author}}</p>
+            </div>
+            <div class="twitter-card-position">
+                <p class="twitter-card-position-title">{{post.title}}</p>
+            </div>
+            <div class="twitter-card-text">
+                <p class="twitter-card-text-p">{{post.text}}</p>
+            </div>
+            <div class="twitter-card-widgets">
+                <div class="favourite-icon-widget">
+                    <a href="{% url 'add_to_favourites' post.id %}" style="margin-left: 10%;">
+                        <img src="{% static 'img/heart-solid (1).svg' %}" class="favourite-icon">
+                    </a>
+                </div>
+                <div class="trash-icon-widget">
+                    <a href="{% url 'delete_post' post.id %}" style="margin-left: 10%;">
+                        <img src="{% static 'img/trash-can-solid.svg' %}" class="trash-icon">
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

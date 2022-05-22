@@ -6,16 +6,14 @@
 {% block content %}
 <p class="edit-title">Edit your profile</p>
 <div class="edit_container">
-    <form action="">
-        <a href="">
-            <div class="edit_profileimg">
-                <img src="{% static 'img/camera.png' %}" style="height: 50px;">
-            </div>
-        </a>
-        <div class="input_container">
-            <input type="text" class="edit_input" placeholder="Name">
-            <textarea class="edit_input" placeholder="Bio" style="resize: none;"></textarea>
-            <input type="text" class="edit_input" placeholder="Location">
+    <form action="" method="POST" enctype="multipart/form-data" class="edit-form">
+        <div class="edit-img-widget">
+            <img src="" alt="" class="edit-img">
+        </div>
+        <div class="edit-inputs-widget">
+            <input type="text" class="edit-form-input">
+            <input type="text" class="edit-form-input">
+            <input type="text" class="edit-form-input">
         </div>
     </form>
 </div>

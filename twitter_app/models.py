@@ -8,8 +8,6 @@ from django.contrib.auth.models import User
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, verbose_name='Пользователь')
     avatar = models.ImageField('Аватар', blank=True, null=True, upload_to='users/avatars')
-    user_description = models.CharField('Описание пользователя', max_length=150)
-    user_nickname = models.CharField(max_length=30)
     
     class Meta:
         verbose_name = 'Дополнительное поле пользователя'
@@ -63,5 +61,12 @@ class Favourite(models.Model):
 class Comment(models.Model):
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     post = models.ForeignKey(Post, on_delete=models.CASCADE)
-    text = models.TextField('Текст комментария')
-    date = models.DateTimeField('Дата', default=timezone.now)
+    body = models.TextField(blank=True, null=True)
+    date = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'Комментарий'
+        verbose_name_plural = 'Комментарии'
+
+    def __str__(self):
+        return self.user.username

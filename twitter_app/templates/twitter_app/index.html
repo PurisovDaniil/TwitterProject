@@ -65,13 +65,11 @@
                 <p class="twitter-card-text-p">{{post.text}}</p>
             </div>
             <div class="twitter-card-widgets">
-                <div class="heart-icon-widget">
-                    <img src="{% static 'img/thumbs-up-solid.svg' %}" class="heart-icon">
-                    <p style="margin: 0; margin-right: 10%;">3000</p>
-                </div>
                 <div class="comment-icon-widget">
-                    <img src="{% static 'img/comment-solid.svg' %}" class="comment-icon">
-                    <p style="margin: 0;">2000</p>
+                    <a href="{% url 'post_detail' post.id %}">
+                        <img src="{% static 'img/comment-solid.svg' %}" class="comment-icon">
+                        <p style="margin: 0;">2000</p>
+                    </a>
                 </div>
                 <div class="favourite-icon-widget">
                     <a href="{% url 'add_to_favourites' post.id %}" style="margin-left: 10%;">

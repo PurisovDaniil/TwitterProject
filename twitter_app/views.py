@@ -1,11 +1,12 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import get_object_or_404, render, redirect, reverse
 from django.db.models import Q
-from .models import Post, Favourite
+from .models import Post, Favourite, Comment
 from django.contrib.auth.models import User
 from .forms import RegisterForm
 from django.db.models.deletion import ProtectedError
-from django.http import HttpResponse
+from django.http import HttpResponse, HttpResponseRedirect
 from django.core.files.storage import FileSystemStorage
+from .forms import CommentForm
 
 
 # Create your views here.
@@ -49,7 +50,7 @@ def save_bg(request):
             form.save(request.user)
         return redirect('index')
 
-def user_detail(request):
+def user_detail(request, username):
     user = User.objects.get(username=username)
     views = user.views_set.order_by('-date')
     comments = user.comment_set.order_by('-date')
@@ -65,7 +66,12 @@ def comment(request, slug):
     return redirect(reverse('post_detial_url', kwargs = {'slug':post.slug}))
 
 def profile(request):
-    return render(request, 'twitter_app/profile.html')
+    if not request.user.is_authenticated:
+        return render(request, 'twitter_app/index.html')
+    formBG = UserBG()
+    comments = request.user.comment_set.order_by('-date')
+    context = {'comments':comments, 'formBG':formBG}
+    return render(request, 'twitter_app/profile.html', context)
 
 def authorisation(request):
     return render(request, 'twitter_app/authorisation.html')
@@ -132,8 +138,21 @@ def delete_post(request, id):
             return HttpResponse('Не получилось удалить пост')
     return render(request, 'twitter_app/delete.html', {'post':post})
 
-def messages(request):
-    return render(request, 'twitter_app/messages.html')
-
 def edit_profile(request):
     return render(request, 'twitter_app/edit_profile.html')
+
+def post_detail(request, id):
+    post = Post.objects.get(Post, id=id)
+    user = request.user
+    comments = Comment.objects.filter(post=post).order_by('-date')
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid():
+            comment = form.save(commit=False)
+            comment.post = post
+            comment.user = user
+            comment.save
+            return HttpResponseRedirect(reverse('postdetails', args=[id]))
+    else: 
+        form = CommentForm()
+    return render(request, 'twitter_app/post_detail.html')
