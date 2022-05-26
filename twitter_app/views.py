@@ -43,6 +43,9 @@ def sort(request):
     posts = Post.objects.order_by(query)
     return render(request, 'twitter_app/sort.html', {'query':query, 'posts':posts})
 
+def profile(request):
+    return render(request, 'twitter_app/profile.html')
+
 def save_bg(request):
     if request.method == 'POST':
         form = UserBG('request.POST, request.FILES')
@@ -65,14 +68,6 @@ def comment(request, slug):
         return redirect(reverse('post_detail_url', kwargs = {'slug':post.slug}))
     return redirect(reverse('post_detial_url', kwargs = {'slug':post.slug}))
 
-def profile(request):
-    if not request.user.is_authenticated:
-        return render(request, 'twitter_app/index.html')
-    formBG = UserBG()
-    comments = request.user.comment_set.order_by('-date')
-    context = {'comments':comments, 'formBG':formBG}
-    return render(request, 'twitter_app/profile.html', context)
-
 def authorisation(request):
     return render(request, 'twitter_app/authorisation.html')
 
@@ -93,8 +88,8 @@ def add_to_favourites(request, post_id):
         return redirect('index')
     return redirect('authorisation')
 
-def delete_favourites(request, item_id):
-    item = Favourite.objects.get(id=item_id)
+def delete_favourites(request, post_id):
+    item = Favourite.objects.get(id=post_id)
     if request.user.is_authenticated:
         item.delete()
         return redirect('favourites')

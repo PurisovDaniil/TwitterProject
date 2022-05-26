@@ -4,18 +4,26 @@
 Редактирование профиля
 {% endblock %}
 {% block content %}
-<p class="edit-title">Edit your profile</p>
+<div class="container-top">
+    <p style="font-weight: bold; font-size: large;">Edit profile</p>
+</div>
+<hr>
 <div class="edit_container">
     <form action="" method="POST" enctype="multipart/form-data" class="edit-form">
-        <div class="edit-img-widget">
-            <img src="" alt="" class="edit-img">
-        </div>
-        <div class="edit-inputs-widget">
-            <input type="text" class="edit-form-input">
-            <input type="text" class="edit-form-input">
-            <input type="text" class="edit-form-input">
-        </div>
+        <div class="edit-form-block">
+            <div class="edit-img-widget">
+                <img src="" alt="" class="edit-img">
+            </div>
+            <div class="edit-inputs-widget">
+                <input type="text" class="edit-form-input" placeholder="Nickname">
+                <input type="password" class="edit-form-input" placeholder="Password">
+                <div class="edit-photo-user-widget">
+                    <label for="photo" class="edit-photo-user">Выбрать фото</label>
+                    <input type="file" class="edit-form-input" id="photo" style="display: none; height: 0;">
+                </div>
+            </div>
+            <button class="edit-button" type="submit">Сохранить</button>
+        </div>  
     </form>
 </div>
-<button class="edit-button" type="submit">save</button>
 {% endblock %}

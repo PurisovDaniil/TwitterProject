@@ -419,13 +419,13 @@ body{
     color: black;
     font-weight: bold;
 }
+.follow-span-second{
+    color: black;
+    font-weight: bold;
+    margin-left: 2%;
+}
 .accaunt{
     height: 10px;
-}
-.edit-title{
-    font-weight: bold;
-    font-size: x-large;
-    margin-top: 1.8%;
 }
 .container-top-widget-block{
     margin-left: 1%;
@@ -481,9 +481,64 @@ body{
 }
 .edit-container{
     display: flex;
+    justify-content: center;
 }
 .comment-icon-widget a{
     display: flex;
     color: black;
     text-decoration: none;
+}
+.edit-form-input{
+    display: block;
+    margin-bottom: 5%;
+    padding: 7px 10px 7px 10px;
+    outline: none;
+    border: gray solid 0.5px;
+}
+.edit-form-input:focus{
+    border: solid 0.5px gray;
+    padding: 7px 10px 7px 10px;
+    box-shadow: inset rgb(29, 155, 240) 0 0 4px 1px;
+}
+.edit-photo-user:hover{
+    cursor: pointer;
+}
+.edit-photo-user-widget{
+    margin-top: 7%;
+    margin-bottom: 7%;
+}
+.edit-photo-user{
+    padding: 7px 10px 7px 10px;
+    background-color: #1D9BF0;
+    transition: all 0.3s ease;
+    color: white;
+    font-weight: bold;
+}
+.edit-photo-user:hover{
+    background-color: white;
+    box-shadow: inset #1D9BF0 0 0 0 3px;
+    transition: all 0.3s ease;
+    color: #1D9BF0;
+}
+.edit-form{
+    display: flex;
+    justify-content: center;
+}
+.edit-button{
+    width: 100%;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    border: none;
+    outline: none;
+    background-color: #1D9BF0;
+    color: white;
+    transition: all 0.3s ease;
+    font-weight: bold;
+}
+.edit-button:hover{
+    background-color: white;
+    color: #1D9BF0;
+    box-shadow: inset 0 0 0 3px #1D9BF0;
+    transition: all 0.3s ease;
+    cursor: pointer;
 }
